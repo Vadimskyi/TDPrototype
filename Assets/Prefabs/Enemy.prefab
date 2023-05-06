@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4037650349805053666}
   - component: {fileID: 5873219279198559381}
   - component: {fileID: 4037650349805053667}
-  - component: {fileID: 8462457601090862946}
-  - component: {fileID: 6457565898948277047}
+  - component: {fileID: 6539109351086941136}
+  - component: {fileID: 4859952545202576271}
+  - component: {fileID: 6940114101465893703}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4037650349805053664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57415dc155a83342ae27e872bcde0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 8
   health: 10
   targetPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &4037650349805053667
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7be04610c66c4b4498a5750435b17e0a, type: 3}
   m_Color: {r: 0, g: 0.73562217, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +103,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8462457601090862946
+--- !u!195 &6539109351086941136
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037650349805053664}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 0
+  m_Acceleration: 0
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 0
+  m_AutoRepath: 0
+  m_Height: 0.1
+  m_BaseOffset: 0.25
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!58 &4859952545202576271
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,8 +140,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49999997
---- !u!50 &6457565898948277047
+  m_Radius: 0.32
+--- !u!50 &6940114101465893703
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -132,7 +155,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0

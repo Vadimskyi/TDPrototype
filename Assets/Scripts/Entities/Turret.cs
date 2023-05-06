@@ -73,7 +73,6 @@ public class Turret : MonoBehaviour
 
 	private void Shoot()
 	{
-		Debug.Log("Shoot!");
 		TurrentShotEvent.Invoke(new TurrentShotEvent.Args
 		{
 			target = _targetEnemy,
