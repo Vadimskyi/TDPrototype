@@ -1,4 +1,4 @@
 # TDPrototype
  Simple tower defense prototype
-# Resource
+## Resources:
 https://github.com/h8man/NavMeshPlus
