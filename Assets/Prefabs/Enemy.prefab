@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57415dc155a83342ae27e872bcde0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  health: 15.58
+  speed: 3
+  health: 10
   targetPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &4037650349805053667
 SpriteRenderer:

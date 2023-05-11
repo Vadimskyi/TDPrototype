@@ -10,19 +10,24 @@ public class Enemy : MonoBehaviour
 	public float health;
 	public Vector3 targetPosition;
 
+	private Healthbar _healthbar;
 	private UnityEngine.AI.NavMeshAgent _agent;
 	private Queue<Vector3> _path;
+	private float _maxHealth;
 
 	private void Start()
 	{
+		_healthbar = GetComponentInChildren<Healthbar>();
 		_agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		_agent.updateRotation = false;
 		_agent.updateUpAxis = false;
+		_maxHealth = health;
 	}
 
 	public void TakeDamage(float damage)
 	{
 		health -= damage;
+		if(_healthbar) _healthbar.UpdatHealth(health, _maxHealth);
 		if(health <= 0)
 		{
 			EnemyDestroyedEvent.Invoke(this);

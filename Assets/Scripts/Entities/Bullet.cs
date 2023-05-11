@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
 		var targetPosition = target? target.transform.position : _targetPositionIfDestroyed;
 
-		if(Vector3.Distance(transform.position, targetPosition) < 0.1f)
+		if(Vector3.Distance(transform.position, targetPosition) < 0.2f)
 		{
 			_scheduleForDestroy = true;
 			OnTargetHit();
@@ -33,6 +33,8 @@ public class Bullet : MonoBehaviour
 
 		var direction = (targetPosition - transform.position).normalized;
 		transform.position += direction * speed * Time.deltaTime;
+		float angle = Mathf.Atan2(direction.x, direction.y) * -1 * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 		_targetPositionIfDestroyed = target? (target.transform.position - transform.position) * 5 : _targetPositionIfDestroyed;
 	}

@@ -8,11 +8,14 @@ using System.Linq;
 public class Turret : MonoBehaviour
 {
 	public Transform nozzle;
+	public Transform nozzleFlash;
+	public Bullet bulletPrefab;
 	public Collider2D rangeCollider;
 	public float range;
 	public float attackSpeed;
 	public float damage;
 	public float rotationSpeed;
+	public Vector3 nozzleOffset;
 
 	private float _attackTimeAccumulator;
 	private Enemy _targetEnemy;
@@ -64,7 +67,7 @@ public class Turret : MonoBehaviour
 		_attackTimeAccumulator += Time.deltaTime;
 		var timeBetweenAttacks = 1 / attackSpeed;
 
-		if(_attackTimeAccumulator > timeBetweenAttacks)
+		if(_attackTimeAccumulator > timeBetweenAttacks && NozzleAlignedWithTarget())
 		{
 			_attackTimeAccumulator = 0;
 			Shoot();
@@ -78,6 +81,16 @@ public class Turret : MonoBehaviour
 			target = _targetEnemy,
 			turret = this
 		});
+	}
+
+	private bool NozzleAlignedWithTarget()
+	{
+		if(_targetEnemy == null) return false;
+
+		var direction = (_targetEnemy.transform.position - transform.position).normalized;
+		var angle = Vector3.Angle(direction, nozzle.up);
+
+		return angle < 5;
 	}
 
 	private void UpdateNozzleRotation()

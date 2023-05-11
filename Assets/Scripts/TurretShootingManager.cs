@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TurretShootingManager : MonoBehaviour
 {
-	public Bullet bulletPrefab;
-
-
 	private void Start()
 	{
 		TurrentShotEvent.Subscribe(OnTurrentShot);
@@ -14,7 +11,7 @@ public class TurretShootingManager : MonoBehaviour
 
 	private void OnTurrentShot(TurrentShotEvent.Args args)
 	{
-		var bullet = Instantiate(bulletPrefab, args.turret.nozzle.position, args.turret.nozzle.rotation);
+		var bullet = Instantiate(args.turret.bulletPrefab, args.turret.nozzleFlash.position, args.turret.nozzle.rotation);
 		bullet.damage = args.turret.damage;
 		bullet.target = args.target;
 	}
