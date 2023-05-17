@@ -16,6 +16,7 @@ public class Turret : MonoBehaviour
 	public float damage;
 	public float rotationSpeed;
 	public Vector3 nozzleOffset;
+	public TargetPriority targetPriority;
 
 	private float _attackTimeAccumulator;
 	private Enemy _targetEnemy;
@@ -29,10 +30,6 @@ public class Turret : MonoBehaviour
 			.Subscribe(enemy =>
 			{
 				_enemiesInRange.Add(enemy);
-				//shoot
-				/*var bullet = Instantiate(bulletPrefab, nozzle.position, nozzle.rotation);
-				bullet.GetComponent<Bullet>().damage = damage;
-				bullet.GetComponent<Rigidbody2D>().velocity = nozzle.up * 10;*/
 			})
 			.AddTo(this);
 
@@ -51,13 +48,25 @@ public class Turret : MonoBehaviour
 
 	private void Update()
 	{
-		if(_targetEnemy == null || !_enemiesInRange.Contains(_targetEnemy))
-		{
-			_targetEnemy = _enemiesInRange.FirstOrDefault();
-		}
+		SelectTarget();
 
 		UpdateNozzleRotation();
 		UpdateShooting();
+	}
+
+	private void SelectTarget()
+	{
+		//if(_targetEnemy && _enemiesInRange.Contains(_targetEnemy)) return;
+
+		switch(targetPriority)
+		{
+			case TargetPriority.First:
+				_targetEnemy = _enemiesInRange.FirstOrDefault();
+				break;
+			case TargetPriority.Last:
+				_targetEnemy = _enemiesInRange.LastOrDefault();
+				break;
+		}
 	}
 
 	private void UpdateShooting()

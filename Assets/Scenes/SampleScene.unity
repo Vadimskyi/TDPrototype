@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 36360283}
   - component: {fileID: 36360280}
   m_Layer: 0
-  m_Name: TurretSlow
+  m_Name: RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,13 +380,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nozzle: {fileID: 577264673}
   nozzleFlash: {fileID: 2068493262}
-  bulletPrefab: {fileID: 5002025631682153309, guid: 5809a2f327f5eee42a9fbe4d70d8eedc, type: 3}
+  bulletPrefab: {fileID: 2267285570563757844, guid: 5809a2f327f5eee42a9fbe4d70d8eedc, type: 3}
   rangeCollider: {fileID: 123629405}
   range: 0
-  attackSpeed: 1
+  attackSpeed: 0.5
   damage: 8
-  rotationSpeed: 10
+  rotationSpeed: 1
   nozzleOffset: {x: 0, y: 0, z: 0}
+  targetPriority: 1
 --- !u!4 &36360282
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1417,7 @@ Transform:
   m_GameObject: {fileID: 123629404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 36360282}
@@ -4083,7 +4084,7 @@ Transform:
   m_GameObject: {fileID: 635125149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1748762835}
@@ -8349,7 +8350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1320197846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8423,6 +8424,7 @@ MonoBehaviour:
   damage: 8
   rotationSpeed: 5
   nozzleOffset: {x: 0, y: 0, z: 0}
+  targetPriority: 0
 --- !u!4 &1320197848
 Transform:
   m_ObjectHideFlags: 0
@@ -10386,6 +10388,7 @@ MonoBehaviour:
   damage: 1
   rotationSpeed: 20
   nozzleOffset: {x: 0, y: 0, z: 0}
+  targetPriority: 0
 --- !u!4 &1748762835
 Transform:
   m_ObjectHideFlags: 0
@@ -13065,6 +13068,7 @@ MonoBehaviour:
   damage: 0.1
   rotationSpeed: 5
   nozzleOffset: {x: 0, y: 0, z: 0}
+  targetPriority: 0
 --- !u!212 &7227688793903513747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13135,7 +13139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7227688793903513749
 MonoBehaviour:
   m_ObjectHideFlags: 0
