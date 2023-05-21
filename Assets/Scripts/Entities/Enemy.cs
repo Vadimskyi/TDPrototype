@@ -6,21 +6,18 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+	public SpriteRenderer spriteRenderer;
 	public float speed;
 	public float health;
 	public Vector3 targetPosition;
 
 	private Healthbar _healthbar;
-	private UnityEngine.AI.NavMeshAgent _agent;
 	private Queue<Vector3> _path;
 	private float _maxHealth;
 
 	private void Start()
 	{
 		_healthbar = GetComponentInChildren<Healthbar>();
-		_agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-		_agent.updateRotation = false;
-		_agent.updateUpAxis = false;
 		_maxHealth = health;
 	}
 
@@ -45,22 +42,14 @@ public class Enemy : MonoBehaviour
 
 		var direction = (targetPosition - transform.position).normalized;
 		transform.position += direction * speed * Time.deltaTime;
+
+		var rotationAngle = Mathf.Atan2(direction.x, direction.y) * -1 * Mathf.Rad2Deg;
+		spriteRenderer.transform.rotation = Quaternion.Slerp(spriteRenderer.transform.rotation, Quaternion.AngleAxis(rotationAngle, Vector3.forward), Time.deltaTime * 10);
 	}
 
-	public void UpdateTargetPosition(Vector3 tp)
+	public void SetPath(Vector2[] path)
 	{
-		_agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-		targetPosition = tp;
-
-		_agent.SetDestination(targetPosition);
-
-		NavMeshPath path = new NavMeshPath();
-
-		_agent.CalculatePath(targetPosition, path);
-		_path = new Queue<Vector3>(path.corners.Select(s => new Vector3(s.x, s.y, 0)));
-
-		_agent.enabled = false;
+		_path = new Queue<Vector3>(path.Select(s => new Vector3(s.x, s.y, 0)));
 		targetPosition = _path.Dequeue();
 	}
 }

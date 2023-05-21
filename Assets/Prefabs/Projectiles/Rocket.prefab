@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2045182998574518613}
-  - component: {fileID: 8555297525898140478}
   - component: {fileID: 2267285570563757844}
   - component: {fileID: 8555558579585668999}
+  - component: {fileID: 8555297525898140478}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -34,6 +34,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2267285570563757844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069063697928761893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05afa7eb7601f9246af1b1ec2767e6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  target: {fileID: 0}
+--- !u!114 &8555558579585668999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069063697928761893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42675dbfb9f2eb84cad8b75e5c094ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  acceleration: 5
+  explosionPrefab: {fileID: -8762770987063382748, guid: ce0fddacbf23c6943bd38c783e045c8b, type: 3}
 --- !u!212 &8555297525898140478
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,32 +115,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2267285570563757844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8069063697928761893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05afa7eb7601f9246af1b1ec2767e6d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  target: {fileID: 0}
---- !u!114 &8555558579585668999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8069063697928761893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42675dbfb9f2eb84cad8b75e5c094ff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  acceleration: 5
-  explosionPrefab: {fileID: -8762770987063382748, guid: ce0fddacbf23c6943bd38c783e045c8b, type: 3}

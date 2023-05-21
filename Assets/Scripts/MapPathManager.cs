@@ -1,0 +1,13 @@
+/* Copyright (C) 2023 Vadimskyi - All Rights Reserved
+ * Github - https://github.com/Vadimskyi
+ * Website - https://www.vadimskyi.com/
+ * You may use, distribute and modify this code under the
+ * terms of the GPL-3.0 License.
+ */
+
+using UnityEngine;
+
+public class MapPathManager : MonoBehaviour
+{
+	public Vector2[] path;
+}

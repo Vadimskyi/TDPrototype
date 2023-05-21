@@ -15,8 +15,13 @@ public class EnemyManager : MonoBehaviour
 	private float _currentWaveTime;
 	private float _spawnEnemyRate;
 	private float _spawnEnemyTimer;
-
+	private MapPathManager _mapPathManager;
 	private List<Enemy> _spawnedEnemies = new List<Enemy>();
+
+	private void Awake()
+	{
+		_mapPathManager = GetComponent<MapPathManager>();
+	}
 
 	private void Start()
 	{
@@ -52,6 +57,7 @@ public class EnemyManager : MonoBehaviour
 	private void SpawnNewEnemy()
 	{
 		var enemy = Instantiate(enemyPrefab);
+		enemy.SetPath(_mapPathManager.path);
 		_spawnedEnemies.Add(enemy);
 		EnemySpawnedEvent.Invoke(enemy);
 	}

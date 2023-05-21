@@ -1,3 +1,4 @@
 * Generate sprites:
 	- Rocket projectile
-	- 
+	- Acid ball projectile
+	- Acid pool sprite and animation

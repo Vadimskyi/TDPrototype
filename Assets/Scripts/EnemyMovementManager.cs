@@ -34,7 +34,7 @@ public class EnemyMovementManager : MonoBehaviour
 	private void OnEnemySpawned(Enemy enemy)
 	{
 		enemy.transform.position = start.transform.position;
-		enemy.UpdateTargetPosition(end.transform.position);
+		//enemy.UpdateTargetPosition(end.transform.position);
 		_spawnedEnemies.Add(enemy);
 	}
 
