@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
 	public void MoveTowardsTarget(float deltaTime)
 	{
-		if(Vector3.Distance(transform.position, targetPosition) < 0.1f)
+		if(Vector3.Distance(transform.position, targetPosition) < 0.05f)
 		{
 			if(_path.Count < 1) return;
 			targetPosition = _path.Dequeue();
